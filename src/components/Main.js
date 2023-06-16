@@ -6,9 +6,9 @@ import CardFour from "./CardFour";
 import CardFive from "./CardFive";
 import CardSix from "./CardSix";
 
-function Main({clickHandler}) {
+function Main() {
   return (
-    <div className="container pt-28 sm:p-5" onClick={clickHandler}>
+    <div className="container pt-28 sm:p-5">
       <Stack></Stack>
       <div className="flex flex-col gap-28">
         <CardOne></CardOne>

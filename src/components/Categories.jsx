@@ -8,6 +8,7 @@ import menu from "../assets/images/menu-logo.svg";
 import CategoriesItem from "./CategoriesItem";
 import { useState } from "react";
 import Menu from "../components/Menu";
+
 function Categories() {
   const [isBlock, setIsBlock] = useState(true);
   const [itemName, setItemName] = useState();

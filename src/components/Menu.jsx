@@ -10,13 +10,9 @@ import uncharted from "../assets/images/uncharted.svg";
 import eren_film from "../assets/images/eren-film.svg";
 import hurkus from "../assets/images/hurkus.svg";
 import resident_evil from "../assets/images/resident-evil.svg";
-
 import moonfall from "../assets/images/moonfall.jpg";
 
 function Menu({ isBlock, mainHandler, itemName }) {
-  // const mobileClose = () => {
-  //   isBlock = !isBlock;
-  // };
 
   const populerFilms = [
     {
