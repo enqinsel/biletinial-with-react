@@ -36,7 +36,7 @@ function CardFive() {
       <DropdownMenu></DropdownMenu>
       <a
         href="/"
-        className="mt-2 flex items-center gap-2 underline lg:text-sm text-xs"
+        className="mt-2 flex items-center gap-2 underline lg:text-sm text-xs "
       >
         Missing information? Suggest edit <img src={pen} alt="pencil" />
       </a>

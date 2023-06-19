@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect } from "react";
+
 import cinema from "../assets/images/cinema-logo.svg";
 import theatre from "../assets/images/theatre-logo.svg";
 import music from "../assets/images/music-logo.svg";
@@ -6,12 +8,14 @@ import festivals from "../assets/images/festivals-logo.svg";
 import shows from "../assets/images/shows-logo.svg";
 import menu from "../assets/images/menu-logo.svg";
 import CategoriesItem from "./CategoriesItem";
-import { useState } from "react";
 import Menu from "../components/Menu";
+
 
 function Categories() {
   const [isBlock, setIsBlock] = useState(true);
   const [itemName, setItemName] = useState();
+  const menuRef = useRef(null);
+  const categoriesRef = useRef(null);
 
   const categoryData = [
     {
@@ -86,13 +90,34 @@ function Categories() {
     },
   ];
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        categoriesRef.current &&
+        !categoriesRef.current.contains(event.target)
+      ) {
+        setIsBlock(true);
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const mainHandler = () => {
     setIsBlock(true);
   };
 
   return (
     <>
-      <div className="lg:flex sm:flex-col lg:w-558 justify-center items-center gap-8 text-sm">
+      <div
+        className="lg:flex sm:flex-col lg:w-558 justify-center items-center gap-8 text-sm"
+        ref={categoriesRef}
+      >
         {categoryData.map((category, index) => (
           <CategoriesItem
             key={index}
@@ -101,14 +126,13 @@ function Categories() {
             img_sub={category.img_sub}
             clickHandler={category.itemHandler}
           />
-          
         ))}
-        <div className="absolute left-0">
+        <div className="absolute left-0" ref={menuRef}>
           <Menu
             mainHandler={mainHandler}
             isBlock={isBlock}
             itemName={itemName}
-          ></Menu>
+          />
         </div>
       </div>
     </>
