@@ -22,7 +22,7 @@ function CardSix() {
             chocolate danish pie toffee muffin marzipan candy canes.
           </p>
         </div>
-        <Contact></Contact>
+        <Contact />
       </div>
       <Iframe />
     </div>
